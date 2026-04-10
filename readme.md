@@ -38,5 +38,6 @@ npm install @react-navigation/native-stack
  │         ├── 📄 Home.tsx      # Tela inicial
  │         └── 📄 Profile.tsx   # Tela de perfil do usuário
  │
+
  ├── 📄 App.tsx                 # Arquivo principal que gerencia as rotas
  └── 📄 tsconfig.json           # Configuração do compilador
