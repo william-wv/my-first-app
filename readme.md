@@ -1,43 +1,102 @@
-# 📱 App de Estudos - Navegação e Tipagem Completa com React Native
+# 📱 Atividades de PDM com React Native + Expo
 
-Este é um projeto de estudo prático focado em dominar a criação de interfaces, rotas de navegação (React Navigation) e tipagem estática (TypeScript) no ecossistema **React Native + Expo**.
+Este repositório contém a implementação das atividades da disciplina, desenvolvidas com **React Native**, **Expo** e **TypeScript**.
 
-## 🚀 Tecnologias Utilizadas
+## ✅ Atividade atual: Screen Wrappers
 
-* **React Native & Expo:** Framework e plataforma de desenvolvimento mobile.
-* **React Navigation (Native Stack):** Gerenciamento da pilha de navegação entre telas.
-* **TypeScript:** Prevenção de erros com tipagem rigorosa de rotas e parâmetros.
+O objetivo desta atividade foi criar componentes reutilizáveis para servir como "moldura" das telas do app.
+
+Foram implementados dois wrappers:
+
+### 1. `ScreenWrapperFullscreen`
+Usado em telas sem rolagem, com opção de centralizar o conteúdo.
+
+**Props:**
+- `children`
+- `center?`
+- `padding?` com padrão `20`
+- `gap?`
+
+### 2. `ScreenWrapperScrollable`
+Usado em telas com muito conteúdo, utilizando `ScrollView`.
+
+**Props:**
+- `children`
+- `padding?` com padrão `20`
+- `gap?`
+- `onRefresh?`
+
+Também foi utilizado:
+- `StatusBar` do `expo-status-bar`
+- `SafeAreaView` do `react-native-safe-area-context`
+- `RefreshControl` para o efeito de "puxar para atualizar"
 
 ---
 
-## 🛠️ Como rodar o projeto do zero
+## 🧪 Telas de demonstração
 
-Se você clonou este projeto ou está recriando do zero, siga os passos abaixo:
+### `Home.tsx`
+Tela usando o wrapper **rolável**, com uma lista de itens dinâmica.
 
-### 1. Instalação das dependências
-Além do padrão do Expo, este projeto exige as bibliotecas de navegação. Rode no terminal:
+### `LoginScreen.tsx`
+Tela usando o wrapper **fullscreen**, com conteúdo centralizado.
 
+No arquivo `App.tsx`, é possível alternar entre os dois exemplos mudando o valor da constante:
+
+```tsx
+const showFullscreenExample = false;
+```
+
+- `false` → abre a tela `Home`
+- `true` → abre a tela `LoginScreen`
+
+---
+
+## 📁 Estrutura principal
+
+```text
+src/
+├── components/
+│   ├── Home.tsx
+│   └── screen-wrappers/
+│       ├── ScreenWrapperFullscreen.tsx
+│       └── ScreenWrapperScrollable.tsx
+└── views/
+    └── LoginScreen.tsx
+```
+
+---
+
+## 🚀 Como executar
+
+### 1. Instalar dependências
 ```bash
-# Instala as dependências base do projeto
 npm install
+```
 
-# Instala o React Navigation e dependências do Expo
-npm install @react-navigation/native
-npx expo install react-native-screens react-native-safe-area-context
+### 2. Rodar o projeto no navegador
+```bash
+npm run web
+```
 
-# Instala o Native Stack (Navegação em Pilha)
-npm install @react-navigation/native-stack
+### 3. Verificar o TypeScript
+```bash
+npx tsc --noEmit
+```
 
+---
 
-📁 raiz-do-projeto/
- ├── 📁 src/
- │    ├── 📁 navigation/   
- │    │    └── 📄 types.ts      # Tipagem das rotas
- │    │
- │    └── 📁 screens/      
- │         ├── 📄 Home.tsx      # Tela inicial
- │         └── 📄 Profile.tsx   # Tela de perfil do usuário
- │
+## 🎯 Requisitos atendidos
 
- ├── 📄 App.tsx                 # Arquivo principal que gerencia as rotas
- └── 📄 tsconfig.json           # Configuração do compilador
+- [x] Configuração da `StatusBar`
+- [x] Criação da pasta `components/screen-wrappers/`
+- [x] Implementação do `ScreenWrapperFullscreen`
+- [x] Implementação do `ScreenWrapperScrollable`
+- [x] Uso de props opcionais com valores padrão
+- [x] Suporte a rolagem e `onRefresh`
+- [x] Integração com `SafeAreaView`
+
+---
+
+## 👨‍💻 Autor
+Projeto desenvolvido para fins acadêmicos na disciplina de **Programação para Dispositivos Móveis (PDM)**.

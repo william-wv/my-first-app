@@ -1,4 +1,6 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import ScreenWrapperScrollable from './screen-wrappers/ScreenWrapperScrollable';
 
 type CatalogItem = {
   name: string;
@@ -10,6 +12,7 @@ type CatalogItem = {
 export default function Home() {
   // Nome do usuário exibido na saudação do topo da tela.
   const userName = 'Will';
+  const [reloadCount, setReloadCount] = useState(0);
 
   // Lista de dados do catálogo que será renderizada dinamicamente com map.
   const dataList: CatalogItem[] = [
@@ -17,17 +20,24 @@ export default function Home() {
     { name: 'EA Sports FC 26', price: 279.9, category: 'Sports', onSale: false },
     { name: 'Hollow Knight', price: 46.5, category: 'Indie', onSale: true },
     { name: 'Forza Horizon 5', price: 249.9, category: 'Racing', onSale: false },
+    { name: 'Minecraft Legends', price: 149.9, category: 'Adventure', onSale: true },
+    { name: 'Celeste', price: 36.9, category: 'Platform', onSale: false },
   ];
 
   // Componente salvo em uma constante para demonstrar interpolação de componentes.
   const headerContent = (
     <Text style={styles.subtitle}>
-      Confira os destaques do catálogo de jogos desta semana.
+      Confira os destaques do catálogo de jogos desta semana. Atualizações: {reloadCount}
     </Text>
   );
 
+  // Simula a ação de atualizar ao puxar a tela para baixo.
+  const handleRefresh = async () => {
+    setReloadCount((currentValue) => currentValue + 1);
+  };
+
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScreenWrapperScrollable padding={20} gap={16} onRefresh={handleRefresh}>
       <Text style={styles.title}>Olá, {userName}! 👋</Text>
       {headerContent}
 
@@ -50,23 +60,17 @@ export default function Home() {
           </View>
         ))}
       </View>
-    </ScrollView>
+    </ScreenWrapperScrollable>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    backgroundColor: '#f3f4f6',
-    paddingTop: 64,
-    paddingHorizontal: 20,
-    paddingBottom: 32,
-  },
   title: {
     fontSize: 28,
     fontWeight: '700',
     color: '#111827',
     marginBottom: 8,
+    marginTop: 12,
   },
   subtitle: {
     fontSize: 16,
