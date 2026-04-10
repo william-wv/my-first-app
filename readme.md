@@ -122,5 +122,30 @@ Esta tela demonstra o uso de estados (`useState`) para criar um fluxo dinâmico 
 
 ---
 
+## ✅ Atividade 4: useEffect (Sensor de Estacionamento)
+
+Esta tela simula um sensor de estacionamento e demonstra o uso do hook `useEffect` para controlar o ciclo de vida do componente:
+
+- Ao montar, exibe no console: `📡 Sistema de Sensores Iniciado` e inicia um `setInterval` que loga a cada 2 segundos.
+- Estado `distancia` (número) controlado por input e botões.
+- Sempre que a distância mudar, se for menor que 20cm, exibe um alerta de perigo.
+- Ao desmontar o componente, limpa o intervalo e exibe no console: `📴 Sistema de Sensores Desligado`.
+- Layout estilizado e responsivo.
+
+**Como testar:**
+- No `App.tsx`, deixe `<ParkingSensorScreen />` como tela principal.
+- Veja os logs no console do navegador.
+- Ajuste a distância para testar o alerta.
+- (Opcional) Implemente um botão no pai para desmontar/remontar o sensor e ver o cleanup.
+
+**Requisitos atendidos:**
+- [x] Efeito de montagem (`useEffect` com array vazio)
+- [x] Efeito de monitoramento (`useEffect` com dependência)
+- [x] Cleanup correto do intervalo
+- [x] Alerta condicional
+- [x] Interface didática e alinhada ao enunciado
+
+---
+
 ## 👨‍💻 Autor
 Projeto desenvolvido para fins acadêmicos na disciplina de **Programação para Dispositivos Móveis (PDM)**.
