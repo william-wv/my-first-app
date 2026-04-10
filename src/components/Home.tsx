@@ -8,7 +8,7 @@ type CatalogItem = {
 };
 
 export default function Home() {
-
+  // Nome do usuário exibido na saudação do topo da tela.
   const userName = 'Will';
 
   // Lista de dados do catálogo que será renderizada dinamicamente com map.
@@ -37,12 +37,13 @@ export default function Home() {
             <View style={styles.cardHeader}>
               <Text style={styles.itemName}>{item.name}</Text>
 
-    
+              {/* Exibe o selo de oferta somente quando o item estiver em promoção. */}
               {item.onSale && <Text style={styles.badge}>OFERTA</Text>}
             </View>
 
             <Text style={styles.category}>Categoria: {item.category}</Text>
-            
+
+            {/* Usa operador ternário para trocar a cor do preço conforme a oferta. */}
             <Text style={[styles.price, { color: item.onSale ? '#16a34a' : '#6b7280' }]}>
               Preço: R$ {item.price.toFixed(2)}
             </Text>
