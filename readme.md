@@ -98,5 +98,29 @@ npx tsc --noEmit
 
 ---
 
+## ✅ Atividade 3: useState (Identificação de Visitante)
+
+Esta tela demonstra o uso de estados (`useState`) para criar um fluxo dinâmico de acesso:
+
+- Estado `name` (string, tipado): armazena o nome digitado.
+- Estado `accessAuthorized` (boolean, tipado): controla se o acesso foi liberado.
+- Formulário com `TextInput` e botão "Solicitar Acesso" (desabilitado se o nome estiver vazio).
+- Ao liberar acesso, a tela mostra "Acesso Liberado para: [nome]" e abre automaticamente o site do complexo turístico.
+- Botão "Sair" para resetar o fluxo e voltar ao formulário.
+
+**Como testar:**
+- No `App.tsx`, deixe `<VisitorAccessScreen />` como tela principal.
+- Digite um nome, clique em "Solicitar Acesso" e o site será aberto em uma nova aba.
+- Clique em "Sair" para reiniciar o fluxo.
+
+**Requisitos atendidos:**
+- [x] Estados tipados explicitamente (`useState<string>`, `useState<boolean>`)
+- [x] Validação do input
+- [x] Renderização condicional
+- [x] Reset de fluxo (bônus)
+- [x] Abertura automática do site ao liberar acesso
+
+---
+
 ## 👨‍💻 Autor
 Projeto desenvolvido para fins acadêmicos na disciplina de **Programação para Dispositivos Móveis (PDM)**.

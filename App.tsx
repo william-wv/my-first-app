@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Home from './src/components/Home';
 import LoginScreen from './src/views/LoginScreen';
+import VisitorAccessScreen from './src/views/VisitorAccessScreen';
 
 export default function App() {
   const showFullscreenExample = false;
@@ -9,7 +10,9 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <StatusBar style="dark" />
-      {showFullscreenExample ? <LoginScreen /> : <Home />}
+      {/* <LoginScreen /> */}
+      {/* <Home /> */}
+      <VisitorAccessScreen />
     </SafeAreaProvider>
   );
 }
