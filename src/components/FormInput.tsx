@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TextInputProps, View } from 'react-native';
 import { colors, radius } from '../theme';
 
 type FormInputProps = {
@@ -7,10 +7,7 @@ type FormInputProps = {
   error?: string | null;
   value: string;
   onChangeText: (text: string) => void;
-  placeholder?: string;
-  secureTextEntry?: boolean;
-  keyboardType?: any;
-};
+} & TextInputProps;
 
 export default function FormInput({
   label,
@@ -20,6 +17,7 @@ export default function FormInput({
   placeholder,
   secureTextEntry,
   keyboardType,
+  ...rest
 }: FormInputProps) {
   return (
     <View style={styles.wrapper}>
@@ -32,6 +30,7 @@ export default function FormInput({
         placeholderTextColor={colors.textMuted}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
+        {...rest}
       />
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
     </View>

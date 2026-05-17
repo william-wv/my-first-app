@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { colors } from '../../theme';
 
 type ScreenWrapperFullscreenProps = {
   children: ReactNode;
@@ -27,7 +28,7 @@ export default function ScreenWrapperFullscreen({
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#e2e8f0',
+    backgroundColor: colors.bg,
   },
   container: {
     flex: 1,
